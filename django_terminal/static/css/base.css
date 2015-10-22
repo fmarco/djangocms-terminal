@@ -1,0 +1,36 @@
+#button_terminal {
+    width: 50px;
+    height: 50px;
+    border: 1px solid;
+    right: 0;
+    position: absolute;
+    float:right;
+    display:inline;
+}
+
+#terminal {
+    right: -50px;
+    display: inline-block;
+    float: right;
+}
+
+.terminal {
+    width: 350px;
+    height:350px;
+    overflow: auto;
+    vertical-align: top;
+}
+
+.terminal-white {
+    border: 1px solid;
+}
+
+.terminal-interlaced, .terminal-modern {
+    background-repeat: repeat-y;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAMAAACuX0YVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRFAAAA////pdmf3QAAAAJ0Uk5T/wDltzBKAAAADklEQVR42mJgYGAECDAAAAUAAoeC334AAAAASUVORK5CYII=") top left repeat,rgba(0, 0, 0, 0.9)
+}
+
+.terminal-interlaced .background, .terminal-modern .background  {
+        background-repeat: repeat-y;
+        background: none !important;
+}

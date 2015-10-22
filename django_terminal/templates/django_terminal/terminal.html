@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Terminal</title>
+        <link rel="stylesheet" media="all" href="{% static 'css/terminal-1.0.0.min.css' %}">
+    </head>
+<body>
+    <div id="terminal"></div>
+    <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'js/terminal-1.0.0.min.js' %}"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            terminal = new Terminal('terminal', {}, {
+                execute: parse_command
+            });
+        });
+    </script>
+</body>
+</html>
