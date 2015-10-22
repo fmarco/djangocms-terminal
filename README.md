@@ -38,3 +38,9 @@ Add ``django_terminal`` to INSTALLED_APPS::
 Then migrate::
 
     $ python manage.py migrate
+
+
+Thank-yous
+----------
+
+I was inspired by Terminal by SDA (https://github.com/SDA/terminal). Thanks!
