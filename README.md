@@ -25,7 +25,7 @@ Quickstart
 
 Install django-terminal::
 
-    pip install django-terminal
+    pip install djangocms-terminal
 
 Add ``djangocms_terminal`` to INSTALLED_APPS::
 
