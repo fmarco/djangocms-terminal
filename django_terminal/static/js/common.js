@@ -2,6 +2,7 @@ var help_text = 'Commands:<br>' +
 'apps_list<br>' +
 'models_list<br>' +
 'model_fields<br>' +
+'model_instance<br>' +
 'clear<br>' +
 'help<br>' +
 'theme<br>' +
