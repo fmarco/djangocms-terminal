@@ -9,5 +9,5 @@ urlpatterns = [
     url(r'^models_list/$', views.get_models),
     url(r'^model_fields/$', views.model_fields),
     url(r'^model_instance/$', views.model_instance),
-    url(r'^$', TemplateView.as_view(template_name='django_terminal/terminal.html'))
+    url(r'^$', TemplateView.as_view(template_name='djangocms_terminal/terminal.html'))
 ]

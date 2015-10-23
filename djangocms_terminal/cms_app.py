@@ -4,6 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 
 class TerminalApp(CMSApp):
     name = _("Terminal")
-    urls = ["django_terminal.urls"]
+    urls = ["djangocms_terminal.urls"]
 
 apphook_pool.register(TerminalApp)

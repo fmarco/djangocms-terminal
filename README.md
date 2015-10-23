@@ -1,4 +1,4 @@
-Django-terminal
+DjangoCMS-Terminal
 ===============
 
 
@@ -27,15 +27,15 @@ Install django-terminal::
 
     pip install django-terminal
 
-Add ``django_terminal`` to INSTALLED_APPS::
+Add ``djangocms_terminal`` to INSTALLED_APPS::
 
     INSTALLED_APPS = [
         ...
-        'django_terminal',
+        'djangocms_terminal',
         ...
     ]
 
 Thank-yous
 ----------
 
-I was inspired by Terminal by SDA (https://github.com/SDA/terminal). Thanks!
+This project is based on Terminal by SDA (https://github.com/SDA/terminal). Thanks!

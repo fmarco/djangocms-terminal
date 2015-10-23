@@ -1,6 +1,6 @@
 HELPER_SETTINGS={
     'INSTALLED_APPS': [
-        'django_terminal',
+        'djangocms_terminal',
     ],
     'DEBUG': True,
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from setuptools import setup
-from django_terminal import __version__
+from djangocms_terminal import __version__
 
 
 REQUIREMENTS = [
@@ -21,18 +21,18 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='django-terminal',
+    name='djangocms-terminal',
     version=__version__,
-    description='Terminal on your Django pages project.',
+    description='Terminal for Django CMS project.',
     author='Marco Federighi',
     author_email='federighi.marco@gmail.com',
     url='https://github.com/fmarco/django-terminal',
-    packages=['django_terminal'],
+    packages=['djangocms_terminal'],
     license='MIT',
     platforms=['OS Independent'],
     install_requires=[],
     classifiers=CLASSIFIERS,
     include_package_data=True,
     zip_safe=False,
-    keywords=['terminal', 'django', 'debug'],
+    keywords=['terminal', 'django', 'debug', 'djangocms'],
 )

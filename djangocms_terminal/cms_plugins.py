@@ -5,7 +5,7 @@ from django.utils.translation import ugettext as _
 
 class TerminalPlugin(CMSPluginBase):
     name = _("Terminal Plugin")
-    render_template = "django_terminal/plugins/terminal_plugin.html"
+    render_template = "djangocms_terminal/plugins/terminal_plugin.html"
 
     def render(self, context, instance, placeholder):
         context.update({'instance': instance})
