@@ -35,11 +35,6 @@ Add ``django_terminal`` to INSTALLED_APPS::
         ...
     ]
 
-Then migrate::
-
-    $ python manage.py migrate
-
-
 Thank-yous
 ----------
 
