@@ -26,7 +26,7 @@ setup(
     description='Terminal for Django CMS project.',
     author='Marco Federighi',
     author_email='federighi.marco@gmail.com',
-    url='https://github.com/fmarco/django-terminal',
+    url='https://github.com/fmarco/djangocms-terminal',
     packages=['djangocms_terminal'],
     license='MIT',
     platforms=['OS Independent'],
