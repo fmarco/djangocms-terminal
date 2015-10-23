@@ -28,11 +28,11 @@ setup(
     author_email='federighi.marco@gmail.com',
     url='https://github.com/fmarco/django-terminal',
     packages=['django_terminal'],
-    license='LICENSE.txt',
+    license='MIT',
     platforms=['OS Independent'],
     install_requires=[],
     classifiers=CLASSIFIERS,
     include_package_data=True,
     zip_safe=False,
-    keywords=['terminal', 'django', 'debug']
+    keywords=['terminal', 'django', 'debug'],
 )
