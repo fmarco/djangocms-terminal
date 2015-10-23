@@ -25,7 +25,7 @@ Quickstart
 
 Install django-terminal::
 
-    pip install django-terminal (TODO)
+    pip install django-terminal
 
 Add ``django_terminal`` to INSTALLED_APPS::
 
