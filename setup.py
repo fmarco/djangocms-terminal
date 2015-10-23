@@ -33,5 +33,6 @@ setup(
     install_requires=[],
     classifiers=CLASSIFIERS,
     include_package_data=True,
-    zip_safe=False
+    zip_safe=False,
+    keywords=['terminal', 'django', 'debug']
 )
