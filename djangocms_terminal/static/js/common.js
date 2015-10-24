@@ -10,6 +10,8 @@ var help_text = 'Commands:<br>' +
 
 var terminal = null;
 
+var base_url = "/";
+
 var call_terminal = function(command, method, nosync, arguments){
     var error = 'Error!';
     var res = null;
@@ -22,7 +24,7 @@ var call_terminal = function(command, method, nosync, arguments){
         args = arguments;
     }
     $.ajax({
-        url: '/' + command + '/',
+        url: base_url + command + '/',
         type: method,
         data: args,
         success: function(result) {

@@ -15,6 +15,7 @@
 <script src="{% static 'js/common.js' %}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
+        base_url = "/terminal/";
         $("#terminal").toggle();
         terminal = new Terminal('terminal', {}, {
             execute: parse_command
