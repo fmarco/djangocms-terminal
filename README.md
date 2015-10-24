@@ -1,6 +1,9 @@
 DjangoCMS-Terminal
 ===============
-
+[![PyPI](https://img.shields.io/pypi/pyversions/djangocms-terminal.svg)](https://pypi.python.org/pypi/djangocms-terminal/)
+[![PyPI](https://img.shields.io/pypi/l/djangocms-terminal.svg)](https://pypi.python.org/pypi/djangocms-terminal/)
+[![Latest Version](https://img.shields.io/pypi/v/djangocms-terminal.svg)](https://pypi.python.org/pypi/djangocms-terminal/)
+[![PyPI](https://img.shields.io/pypi/dm/djangocms-terminal.svg)](https://pypi.python.org/pypi/djangocms-terminal/)
 
 This package provides a terminal application.
 
