@@ -6,7 +6,8 @@ This package provides a terminal application.
 
 Supported Django versions:
 
-* Django 1.8
+* Django 1.8, 1.7
+* Django < 1.7 (only in part, wip)
 
 
 Supported django CMS versions:
@@ -34,6 +35,10 @@ Add ``djangocms_terminal`` to INSTALLED_APPS::
         'djangocms_terminal',
         ...
     ]
+
+Add the following to your ``urls.py``::
+
+    url(r'^terminal/', include('djangocms_terminal.urls')),
 
 Thank-yous
 ----------
