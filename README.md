@@ -24,11 +24,11 @@ Features
 Quickstart
 ----------
 
-Install django-terminal::
+Install django-terminal:
 
     pip install djangocms-terminal
 
-Add ``djangocms_terminal`` to INSTALLED_APPS::
+Add ``djangocms_terminal`` to INSTALLED_APPS:
 
     INSTALLED_APPS = [
         ...
@@ -36,7 +36,7 @@ Add ``djangocms_terminal`` to INSTALLED_APPS::
         ...
     ]
 
-Add the following to your ``urls.py``::
+Add the following to your ``urls.py``:
 
     url(r'^terminal/', include('djangocms_terminal.urls')),
 
