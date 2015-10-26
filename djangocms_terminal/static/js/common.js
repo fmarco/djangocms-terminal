@@ -50,7 +50,8 @@ var parse_command = function(cmd, args) {
             return call_terminal('models_list', 'get', false, args);
         case 'model_fields':
             var args = {
-                    'model_name': args[0],
+                    'app_label': args[0],
+                    'model_name': args[1],
                 }
             return call_terminal('model_fields', 'get', false, args);
         case 'model_instance':

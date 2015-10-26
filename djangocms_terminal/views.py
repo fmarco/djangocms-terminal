@@ -1,20 +1,10 @@
-from django.apps import apps
+# -*- coding: utf-8 -*-
+import django
 from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponse
 from django.shortcuts import render
 
-import os
-
-def get_module_name(complete_name):
-    _, app_label = os.path.splitext(complete_name)
-    app_label = app_label[1:] if app_label else _
-    return app_label
-
-def get_installed_apps():
-    return [app.name for app in apps.get_app_configs()]
-
-def get_app_models(app_label):
-    return [model.__name__ for model in apps.get_app_config(app_label).get_models()]
+from .utils import get_module_name, get_installed_apps, get_app_models, get_app_model
 
 def installed_apps(request):
     res = [app + '<br>' for app in get_installed_apps()]
@@ -26,22 +16,22 @@ def get_models(request):
     return HttpResponse(res)
 
 def model_fields(request):
+    app_label = request.GET.get('app_label', '')
     model_name = request.GET.get('model_name', '')
-    for app in get_installed_apps():
-        app = get_module_name(app)
-        try:
-            model = apps.get_model(app_label=app, model_name=model_name)
-            res = [field.name + ' ('+ field.__class__.__name__ +')' + '<br>' for field in model._meta.get_fields()]
-            return HttpResponse(res)
-        except LookupError:
-            pass
+    try:
+        model = get_app_model(app_label=app_label, model_name=model_name)
+        model_fields = getattr(model._meta, 'get_fields()', model._meta.fields)
+        res = [field.name + ' ('+ field.__class__.__name__ +')' + '<br>' for field in model_fields]
+        return HttpResponse(res)
+    except Exception as e:
+        print e
     return HttpResponse('Error')
 
 def model_instance(request):
     model_name = request.GET.get('model_name', '').lower()
     init_values = {}
     args = request.GET.get('args', '')
-    elements = args.split(';')
+    elements = args.split(',')
     for el in elements:
         key_value = el.split('=')
         key = key_value[0]
@@ -50,6 +40,7 @@ def model_instance(request):
     try:
         model_class = ContentType.objects.get(model=model_name).model_class()
         model_class(**init_values).save()
-    except Exception:
+    except Exception as e:
+        print e
         return HttpResponse('Error!')
     return HttpResponse('Created')
