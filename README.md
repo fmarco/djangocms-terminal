@@ -10,7 +10,7 @@ This package provides a terminal application.
 Supported Django versions:
 
 * Django 1.8, 1.7
-* Django < 1.7 (only in part, wip)
+* Django < 1.7 (wip, highly supported)
 
 
 Supported django CMS versions:
