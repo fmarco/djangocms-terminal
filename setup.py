@@ -5,6 +5,7 @@ from djangocms_terminal import __version__
 
 
 REQUIREMENTS = [
+    'django-autofixture==0.10.1'
 ]
 
 CLASSIFIERS = [
@@ -30,7 +31,7 @@ setup(
     packages=['djangocms_terminal'],
     license='MIT',
     platforms=['OS Independent'],
-    install_requires=[],
+    install_requires=REQUIREMENTS,
     classifiers=CLASSIFIERS,
     include_package_data=True,
     zip_safe=False,
