@@ -16,15 +16,15 @@ def get_models(request):
     return HttpResponse(res)
 
 def model_fields(request):
+    app_label = request.GET.get('app_label', '')
     model_name = request.GET.get('model_name', '')
-    for app in get_installed_apps():
-        app = get_module_name(app)
-        try:
-            model = get_app_model(app_label=app, model_name=model_name)
-            res = [field.name + ' ('+ field.__class__.__name__ +')' + '<br>' for field in model._meta.get_fields()]
-            return HttpResponse(res)
-        except LookupError:
-            pass
+    try:
+        model = get_app_model(app_label=app_label, model_name=model_name)
+        model_fields = getattr(model._meta, 'get_fields()', model._meta.fields)
+        res = [field.name + ' ('+ field.__class__.__name__ +')' + '<br>' for field in model_fields]
+        return HttpResponse(res)
+    except Exception as e:
+        print e
     return HttpResponse('Error')
 
 def model_instance(request):
@@ -40,6 +40,7 @@ def model_instance(request):
     try:
         model_class = ContentType.objects.get(model=model_name).model_class()
         model_class(**init_values).save()
-    except Exception:
+    except Exception as e:
+        print e
         return HttpResponse('Error!')
     return HttpResponse('Created')
