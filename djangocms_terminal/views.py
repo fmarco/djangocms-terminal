@@ -31,7 +31,7 @@ def model_instance(request):
     model_name = request.GET.get('model_name', '').lower()
     init_values = {}
     args = request.GET.get('args', '')
-    elements = args.split(';')
+    elements = args.split(',')
     for el in elements:
         key_value = el.split('=')
         key = key_value[0]
