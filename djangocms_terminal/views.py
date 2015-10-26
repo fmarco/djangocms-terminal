@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 import django
-if django.get_version() < '1.8':
-    from django.db.models import loading
-else:
-    from django.apps import apps
 from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .utils import get_module_name, get_installed_apps, get_app_models
+from .utils import get_module_name, get_installed_apps, get_app_models, get_app_model
 
 def installed_apps(request):
     res = [app + '<br>' for app in get_installed_apps()]
@@ -24,7 +20,7 @@ def model_fields(request):
     for app in get_installed_apps():
         app = get_module_name(app)
         try:
-            model = apps.get_model(app_label=app, model_name=model_name)
+            model = get_app_model(app_label=app, model_name=model_name)
             res = [field.name + ' ('+ field.__class__.__name__ +')' + '<br>' for field in model._meta.get_fields()]
             return HttpResponse(res)
         except LookupError:

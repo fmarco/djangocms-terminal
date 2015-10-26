@@ -21,3 +21,6 @@ def get_installed_apps():
 
 def get_app_models(app_label):
     return [model.__name__ for model in apps.get_app_config(app_label).get_models()]
+
+def get_app_model(app_label, model_name):
+    return apps.get_model(app_label=app_label, model_name=model_name)
