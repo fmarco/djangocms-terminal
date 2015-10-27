@@ -1,0 +1,1 @@
+djangocms-helper djangocms_terminal --cms test --extra-settings=test_settings $@
