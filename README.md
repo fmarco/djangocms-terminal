@@ -43,6 +43,17 @@ Add the following to your ``urls.py``:
 
     url(r'^terminal/', include('djangocms_terminal.urls')),
 
+Usage
+----------
+
+List of supported commands:
+
+* ``apps_list`` : get the list of the installed apps
+* ``models_list some_app_label`` : get the list of the models given an app label
+* ``model_fields some_app_label model_name``: get the list of the fields given a couple of app_label/model_name
+* ``model_instance model_name key1=value1,key2=value2...`` : create an instance of a model given a model name and a set of CSV keys/values (format: key=value)
+
+
 Thank-yous
 ----------
 
