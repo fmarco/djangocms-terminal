@@ -3,6 +3,7 @@ branch = True
 source = djangocms_terminal
 omit =
     djangocms_terminal/tests.py
+    djangocms_terminal/migrations/*
 
 [report]
 exclude_lines =
