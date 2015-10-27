@@ -3,6 +3,7 @@ var help_text = 'Commands:<br>' +
 'models_list<br>' +
 'model_fields<br>' +
 'model_instance<br>' +
+'autofixture<br>' +
 'clear<br>' +
 'help<br>' +
 'theme<br>' +
@@ -60,6 +61,13 @@ var parse_command = function(cmd, args) {
                     'args': args[1],
                 }
             return call_terminal('model_instance', 'get', false, args);
+        case 'autofixture':
+            var args = {
+                    'model_name': args[0],
+                    'f_key': args[1],
+                    'n_instances': args[2],
+                }
+            return call_terminal('autofixture', 'get', false, args);
         case 'clear':
             terminal.clear();
             return '';
