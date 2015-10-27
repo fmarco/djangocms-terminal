@@ -52,7 +52,11 @@ def autofixture(request):
     f_key = request.GET.get('f_key', '')
     f_key = f_key.split("=")[1]
     n_instances = int(request.GET.get('n_instances', ''))
-    model_class = ContentType.objects.get(model=model_name).model_class()
-    fixtures = AutoFixture(model_class, generate_fk=f_key)
-    entries = fixtures.create(n_instances)
+    try:
+        model_class = ContentType.objects.get(model=model_name).model_class()
+        fixtures = AutoFixture(model_class, generate_fk=f_key)
+        entries = fixtures.create(n_instances)
+    except Exception as e:
+        print e
+        return HttpResponse('Error!')
     return HttpResponse(entries)
