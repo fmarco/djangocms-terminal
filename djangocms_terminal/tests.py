@@ -30,8 +30,17 @@ class TerminalPluginTests(TestCase):
         )
         model_instance.clean()
         html = model_instance.render_plugin({})
-        expected_response = ('<div class="terminal_container">\n'
+        expected_response = (
+            '<div class="terminal_container">\n'
             '<div id="terminal"></div>\n'
             '<div id="button_terminal">TERM</div>\n</div>'
         )
         self.assertEqual(html.strip(), expected_response.strip())
+
+
+class TerminalTestViews(TestCase):
+
+    def setUp(self):
+        pass
+
+
