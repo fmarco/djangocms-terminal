@@ -4,6 +4,8 @@ from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from autofixture import AutoFixture
+
 from .utils import get_module_name, get_installed_apps, get_app_models, get_app_model
 
 def installed_apps(request):
@@ -44,3 +46,13 @@ def model_instance(request):
         print e
         return HttpResponse('Error!')
     return HttpResponse('Created')
+
+def autofixture(request):
+    model_name = request.GET.get('model_name', '').lower()
+    f_key = request.GET.get('f_key', '')
+    f_key = f_key.split("=")[1]
+    n_instances = int(request.GET.get('n_instances', ''))
+    model_class = ContentType.objects.get(model=model_name).model_class()
+    fixtures = AutoFixture(model_class, generate_fk=f_key)
+    entries = fixtures.create(n_instances)
+    return HttpResponse(entries)

@@ -12,6 +12,7 @@ if django.get_version() < '1.8':
         url(r'^models_list/$', views.get_models),
         url(r'^model_fields/$', views.model_fields),
         url(r'^model_instance/$', views.model_instance),
+        url(r'^autofixture/$', views.autofixture),
         url(r'^$', TemplateView.as_view(template_name='djangocms_terminal/terminal.html'))
     )
 else:
@@ -20,5 +21,6 @@ else:
         url(r'^models_list/$', views.get_models),
         url(r'^model_fields/$', views.model_fields),
         url(r'^model_instance/$', views.model_instance),
+        url(r'^autofixture/$', views.autofixture),
         url(r'^$', TemplateView.as_view(template_name='djangocms_terminal/terminal.html'))
     ]
