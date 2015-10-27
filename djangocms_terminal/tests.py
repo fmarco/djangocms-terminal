@@ -7,7 +7,7 @@ from djangocms_terminal.cms_plugins import TerminalPlugin
 class TerminalPluginTests(TestCase):
 
     def setUp(self):
-            pass
+        pass
 
     def test_plugin_context(self):
         placeholder = Placeholder.objects.create(slot='test')
