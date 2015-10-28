@@ -10,7 +10,7 @@ ARGS = (
 )
 
 class Command(BaseCommand):
-    help = 'Create an instance of a model given a model name'
+    help = 'Generate n instance(s) of a model given a model name, the f_key parameter for Autofixture and the number of instances'
 
     option_list = BaseCommand.option_list
 
