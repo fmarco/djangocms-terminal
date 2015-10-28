@@ -2,6 +2,9 @@
 import os
 
 import django
+from django.contrib.contenttypes.models import ContentType
+
+from autofixture import AutoFixture
 
 
 def installed_apps():
@@ -57,3 +60,29 @@ def get_model_fields(app_label, model_name):
     model = get_app_model(app_label=app_label, model_name=model_name)
     model_fields = getattr(model._meta, 'get_fields()', model._meta.fields)
     return model_fields
+
+def get_model_instance(model_name, args):
+    init_values = {}
+    elements = args.split(',')
+    for el in elements:
+        key_value = el.split('=')
+        key = key_value[0]
+        value = key_value[1]
+        init_values.update({key: value})
+    try:
+        model_class = ContentType.objects.get(model=model_name).model_class()
+        model_class(**init_values).save()
+    except Exception as e:
+        print e
+        return "Error!"
+    return "Created!"
+
+def get_autofixture(model_name, f_key, n_instances):
+    try:
+        model_class = ContentType.objects.get(model=model_name).model_class()
+        fixtures = AutoFixture(model_class, generate_fk=f_key)
+        entries = fixtures.create(n_instances)
+    except Exception as e:
+        print e
+        return 'Error!'
+    return entries

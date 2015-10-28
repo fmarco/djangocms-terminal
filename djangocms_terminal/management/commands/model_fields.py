@@ -13,7 +13,7 @@ class Command(BaseCommand):
 
     option_list = BaseCommand.option_list
 
-    if django.get_version() < '1.7':
+    if django.get_version() < '1.8':
         for arg in ARGS:
             option_list = option_list + (
                 make_option(
