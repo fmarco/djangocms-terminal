@@ -52,3 +52,8 @@ def get_app_models(app_label):
 
 def get_app_model(app_label, model_name):
     return get_model(app_label=app_label, model_name=model_name)
+
+def get_model_fields(app_label, model_name):
+    model = get_app_model(app_label=app_label, model_name=model_name)
+    model_fields = getattr(model._meta, 'get_fields()', model._meta.fields)
+    return model_fields

@@ -6,7 +6,7 @@ from django.shortcuts import render
 
 from autofixture import AutoFixture
 
-from .utils import get_module_name, get_installed_apps, get_app_models, get_app_model
+from .utils import get_module_name, get_installed_apps, get_app_models, get_app_model, get_model_fields
 
 def installed_apps(request):
     res = [app + '<br>' for app in get_installed_apps()]
@@ -21,8 +21,7 @@ def model_fields(request):
     app_label = request.GET.get('app_label', '')
     model_name = request.GET.get('model_name', '')
     try:
-        model = get_app_model(app_label=app_label, model_name=model_name)
-        model_fields = getattr(model._meta, 'get_fields()', model._meta.fields)
+        model_fields = get_model_fields(app_label, model_name)
         res = [field.name + ' ('+ field.__class__.__name__ +')' + '<br>' for field in model_fields]
         return HttpResponse(res)
     except Exception as e:
