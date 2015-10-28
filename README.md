@@ -54,6 +54,8 @@ List of supported commands:
 * ``model_instance model_name key1=value1,key2=value2...`` : create an instance of a model given a model name and a set of CSV keys/values (format: key=value)
 * ``autofixture model_name f_key=True 5`` : create n instance of a model given a model name, a boolean value for the f_key parameter and a integer as an instances number
 
+These commands are available in frontend version and shell version both.
+
 
 Thank-yous
 ----------
