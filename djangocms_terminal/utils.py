@@ -85,4 +85,4 @@ def get_autofixture(model_name, f_key, n_instances):
     except Exception as e:
         print e
         return 'Error!'
-    return entries
+    return 'Created(s)!'

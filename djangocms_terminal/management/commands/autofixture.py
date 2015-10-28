@@ -34,5 +34,5 @@ class Command(BaseCommand):
             raise CommandError("f_key option required")
         if 'n_instances' not in options or not options['n_instances']:
             raise CommandError("n_instances option required")
-        res = get_autofixture(options['model_name'], options['f_key'], options['n_instances'])
+        res = get_autofixture(options['model_name'], options['f_key'], int(options['n_instances']))
         self.stdout.write(res)
