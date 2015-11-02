@@ -57,15 +57,17 @@ var parse_command = function(cmd, args) {
             return call_terminal('model_fields', 'get', false, args);
         case 'model_instance':
             var args = {
-                    'model_name': args[0],
-                    'args': args[1],
+                    'app_label': args[0],
+                    'model_name': args[1],
+                    'args': args[2],
                 }
             return call_terminal('model_instance', 'get', false, args);
         case 'autofixture':
             var args = {
-                    'model_name': args[0],
-                    'f_key': args[1],
-                    'n_instances': args[2],
+                    'app_label': args[0],
+                    'model_name': args[1],
+                    'f_key': args[2],
+                    'n_instances': args[3],
                 }
             return call_terminal('autofixture', 'get', false, args);
         case 'clear':

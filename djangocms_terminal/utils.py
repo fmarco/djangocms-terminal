@@ -51,35 +51,41 @@ def get_installed_apps():
     return [getattr(app, 'name', module_import(app)) for app in installed_apps()]
 
 def get_app_models(app_label):
+    app_label = get_module_name(app_label)
     return [model.__name__ for model in app_models(app_label)]
 
 def get_app_model(app_label, model_name):
+    app_label = get_module_name(app_label)
     return get_model(app_label=app_label, model_name=model_name)
 
 def get_model_fields(app_label, model_name):
+    app_label = get_module_name(app_label)
     model = get_app_model(app_label=app_label, model_name=model_name)
     model_fields = getattr(model._meta, 'get_fields()', model._meta.fields)
     return model_fields
 
-def get_model_instance(model_name, args):
+def get_model_instance(app_label, model_name, args=None):
+    app_label = get_module_name(app_label)
     init_values = {}
-    elements = args.split(',')
-    for el in elements:
-        key_value = el.split('=')
-        key = key_value[0]
-        value = key_value[1]
-        init_values.update({key: value})
+    if args:
+        elements = args.split(',')
+        for el in elements:
+            key_value = el.split(':')
+            key = key_value[0]
+            value = key_value[1]
+            init_values.update({key: value})
     try:
-        model_class = ContentType.objects.get(model=model_name).model_class()
+        model_class = get_app_model(app_label, model_name) #ContentType.objects.get(model=model_name).model_class()
         model_class(**init_values).save()
     except Exception as e:
         print e
         return "Error!"
     return "Created!"
 
-def get_autofixture(model_name, f_key, n_instances):
+def get_autofixture(app_label, model_name, f_key=False, n_instances=1):
+    app_label = get_module_name(app_label)
     try:
-        model_class = ContentType.objects.get(model=model_name).model_class()
+        model_class = get_app_model(app_label, model_name) #ContentType.objects.get(model=model_name).model_class()
         fixtures = AutoFixture(model_class, generate_fk=f_key)
         entries = fixtures.create(n_instances)
     except Exception as e:
