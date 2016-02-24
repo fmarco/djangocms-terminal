@@ -5,7 +5,7 @@ from djangocms_terminal import __version__
 
 
 REQUIREMENTS = [
-    'django-autofixture==0.10.1'
+    'django-autofixture==0.12.0'
 ]
 
 CLASSIFIERS = [
